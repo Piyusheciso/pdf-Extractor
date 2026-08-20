@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard - PDF Extractor</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="container header-content">
+
+        <a
+            href="./dashboard.html"
+            class="logo"
+        >
+            PDF Extractor
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="./dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="./documents.html">
+                Documentation
+            </a>
+
+            <button
+                class="nav-logout"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="dashboard-section">
+
+    <div class="container">
+
+
+        <!-- Dashboard Header -->
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <span class="section-label">
+                    Dashboard
+                </span>
+
+                <h1 id="welcome-message">
+                    Welcome
+                </h1>
+
+                <p>
+                    Upload and manage your
+                    extracted PDF documents.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Stats -->
+
+        <div class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <span>
+                    Documents
+                </span>
+
+                <strong id="document-count">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    Total Pages
+                </span>
+
+                <strong id="page-count">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    Account
+                </span>
+
+                <strong>
+                    Active
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Upload -->
+
+        <div class="card upload-card">
+
+
+            <div class="section-label">
+                PDF Extraction
+            </div>
+
+
+            <h2>
+                Upload PDF
+            </h2>
+
+
+            <p class="description">
+                Upload a readable PDF up to 5 MB.
+                Extracted data will be saved to
+                your account.
+            </p>
+
+
+
+            <div
+                id="drop-zone"
+                class="upload-box"
+            >
+
+
+                <div class="upload-icon">
+                    ↑
+                </div>
+
+
+                <h3>
+                    Upload your PDF
+                </h3>
+
+
+                <p>
+                    Drag and drop your PDF here
+                    or choose a file.
+                </p>
+
+
+                <label
+                    for="file-input"
+                    class="button"
+                >
+                    Choose PDF
+                </label>
+
+
+                <input
+                    id="file-input"
+                    type="file"
+                    accept=".pdf,application/pdf"
+                    hidden
+                >
+
+
+                <small>
+                    Maximum size: 5 MB
+                </small>
+
+
+            </div>
+
+
+
+            <!-- Selected File -->
+
+            <div
+                id="file-info"
+                class="file-info hidden"
+            >
+
+                <div>
+
+                    <strong id="file-name">
+                        document.pdf
+                    </strong>
+
+                    <span id="file-size">
+                        0 MB
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="remove-file"
+                    class="remove-button"
+                >
+                    Remove
+                </button>
+
+            </div>
+
+
+
+            <!-- Extract Button -->
+
+            <button
+                id="extract-button"
+                class="button extract-button hidden"
+            >
+                Extract PDF
+            </button>
+
+
+
+            <!-- Loading -->
+
+            <div
+                id="loading"
+                class="loading hidden"
+            >
+
+                <div class="spinner"></div>
+
+                <p>
+                    Processing PDF...
+                </p>
+
+            </div>
+
+
+
+            <!-- Error -->
+
+            <div
+                id="error-box"
+                class="error hidden"
+            ></div>
+
+
+
+            <!-- Success -->
+
+            <div
+                id="success-box"
+                class="success hidden"
+            ></div>
+
+
+        </div>
+
+
+
+        <!-- Recent Documents -->
+
+        <div class="card">
+
+
+            <div class="result-header">
+
+                <div>
+
+                    <span class="section-label">
+                        History
+                    </span>
+
+                    <h2>
+                        Recent Documents
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                id="recent-documents"
+                class="document-list"
+            >
+
+                <p class="muted">
+                    Loading documents...
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<script src="./js/config.js"></script>
+
+<script src="./js/api.js"></script>
+
+<script src="./js/auth.js"></script>
+
+<script src="./js/dashboard.js"></script>
+
+
+</body>
+
+</html>

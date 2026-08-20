@@ -1,0 +1,38 @@
+
+---
+
+# 12. `.gitignore`
+
+```gitignore
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+
+# Environment
+.env
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+uploads/
+temp/
+
+# Build
+build/
+dist/
+*.egg-info/

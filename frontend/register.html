@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Register - PDF Extractor</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./css/auth.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="container header-content">
+
+        <a
+            href="./index.html"
+            class="logo"
+        >
+            PDF Extractor
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./documentation.html">
+                Documentation
+            </a>
+
+            <a href="./login.html">
+                Login
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="auth-page">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+
+            <!-- Header -->
+
+            <div class="auth-header">
+
+                <span class="section-label">
+                    Get started
+                </span>
+
+                <h1>
+                    Create Account
+                </h1>
+
+                <p>
+                    Create an account to save and manage
+                    your extracted PDF documents.
+                </p>
+
+            </div>
+
+
+
+            <!-- Register Form -->
+
+            <form id="register-form">
+
+
+                <!-- Name -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        id="name"
+                        type="text"
+                        placeholder="Your name"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Create a password"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Confirm Password -->
+
+                <div class="form-group">
+
+                    <label for="confirm-password">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        id="confirm-password"
+                        type="password"
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Error -->
+
+                <div
+                    id="register-error"
+                    class="form-error hidden"
+                ></div>
+
+
+
+                <!-- Success -->
+
+                <div
+                    id="register-success"
+                    class="form-success hidden"
+                ></div>
+
+
+
+                <!-- Button -->
+
+                <button
+                    type="submit"
+                    class="button full-button"
+                    id="register-button"
+                >
+                    Create Account
+                </button>
+
+
+            </form>
+
+
+
+            <!-- Footer -->
+
+            <div class="auth-footer">
+
+                <p>
+
+                    Already have an account?
+
+                    <a href="./index.html">
+                        Login
+                    </a>
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<script src="./js/config.js"></script>
+
+<script src="./js/api.js"></script>
+
+<script src="./js/auth.js"></script>
+
+<script src="./js/register.js"></script>
+
+
+</body>
+
+</html>

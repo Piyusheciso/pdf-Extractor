@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>API Documentation - PDF Extractor</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="container header-content">
+
+        <a
+            href="./index.html"
+            class="logo"
+        >
+            PDF Extractor
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./documentation.html">
+                Documentation
+            </a>
+
+            <a href="./login.html">
+                Login
+            </a>
+
+            <a href="./register.html">
+                Register
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="documentation-page">
+
+
+    <!-- Documentation Hero -->
+
+    <section class="documentation-hero">
+
+        <div class="container">
+
+            <span class="section-label">
+                Developer Documentation
+            </span>
+
+            <h1>
+                PDF Extractor API
+            </h1>
+
+            <p>
+                Extract text from PDF documents and receive
+                structured JSON data organized page by page.
+            </p>
+
+            <div class="documentation-actions">
+
+                <a
+                    href="http://127.0.0.1:8000/docs"
+                    target="_blank"
+                    class="button"
+                >
+                    Open Swagger UI
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <div class="container documentation-layout">
+
+
+        <!-- Sidebar -->
+
+        <aside class="documentation-sidebar">
+
+            <div class="docs-sidebar-card">
+
+                <h3>
+                    On this page
+                </h3>
+
+                <a href="#overview">
+                    Overview
+                </a>
+
+                <a href="#authentication">
+                    Authentication
+                </a>
+
+                <a href="#register">
+                    Register
+                </a>
+
+                <a href="#login">
+                    Login
+                </a>
+
+                <a href="#extract">
+                    PDF Extraction
+                </a>
+
+                <a href="#request">
+                    Request
+                </a>
+
+                <a href="#response">
+                    Response
+                </a>
+
+                <a href="#errors">
+                    Errors
+                </a>
+
+                <a href="#limits">
+                    Limits
+                </a>
+
+                <a href="#examples">
+                    Examples
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- Main Documentation -->
+
+        <article class="documentation-content">
+
+
+            <!-- Overview -->
+
+            <section
+                id="overview"
+                class="docs-section"
+            >
+
+                <span class="docs-number">
+                    01
+                </span>
+
+                <h2>
+                    Overview
+                </h2>
+
+                <p>
+                    The PDF Extractor API accepts PDF files,
+                    extracts text from each page, and returns
+                    structured JSON data.
+                </p>
+
+                <div class="info-card">
+
+                    <strong>
+                        Base URL
+                    </strong>
+
+                    <code>
+                        http://127.0.0.1:8000
+                    </code>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Authentication -->
+
+            <section
+                id="authentication"
+                class="docs-section"
+            >
+
+                <span class="docs-number">
+                    02
+                </span>
+
+                <h2>
+                    Authentication
+                </h2>
+
+                <p>
+                    PDF extraction is available to authenticated
+                    users.
+                </p>
+
+                <p>
+                    After login, the API returns a JWT access
+                    token. Send this token with protected
+                    requests using the Bearer authentication
+                    scheme.
+                </p>
+
+                <div class="code-block">
+
+                    <div class="code-header">
+                        Authorization
+                    </div>
+
+                    <pre><code>Authorization: Bearer YOUR_ACCESS_TOKEN</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Register -->
+
+            <section
+                id="register"
+                class="docs-section"
+            >
+
+                <span class="docs-number">
+                    03
+                </span>
+
+                <h2>
+                    Register
+                </h2>
+
+                <p>
+                    Create a new user account.
+                </p>
+
+
+                <div class="endpoint-card">
+
+                    <div class="method post">
+                        POST
+                    </div>
+
+                    <code>
+                        /api/v1/auth/register
+                    </code>
+
+                </div>
+
+
+                <h3>
+                    Request body
+                </h3>
+
+
+                <div class="code-block">
+
+                    <pre><code>{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password123"
+}</code></pre>
+
+                </div>
+
+
+                <h3>
+                    Response
+                </h3>
+
+
+                <div class="code-block">
+
+                    <pre><code>{
+    "access_token": "eyJ...",
+    "token_type": "bearer",
+    "user": {
+        "id": "65f...",
+        "name": "John Doe",
+        "email": "john@example.com"
+    }
+}</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Login -->
+
+            <section
+                id="login"
+                class="docs-section"
+            >
+
+                <span class="docs-number">
+                    04
+                </span>
+
+                <h2>
+                    Login
+                </h2>
+
+                <p>
+                    Authenticate an existing user.
+                </p>
+
+
+                <div class="endpoint-card">
+
+                    <div class="method post">
+                        POST
+                    </div>
+
+                    <code>
+                        /api/v1/auth/login
+                    </code>
+
+                </div>
+
+
+                <h3>
+                    Request body
+                </h3>
+
+
+                <div class="code-block">
+
+                    <pre><code>{
+    "email": "john@example.com",
+    "password": "password123"
+}</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- PDF Extraction -->
+
+            <section
+                id="extract"
+                class="docs-section"
+            >
+
+                <span class="docs-number">
+                    05
+                </span>
+
+                <h2>
+                    PDF Extraction
+                </h2>
+
+                <p>
+                    Upload a PDF document and extract its text
+                    page by page.
+                </p>
+
+
+                <div class="endpoint-card">
+
+                    <div class="method post">
+                        POST
+                    </div>
+
+                    <code>
+                        /api/v1/pdf/extract
+                    </code>
+
+                </div>
+
+
+                <div class="requirement-card">
+
+                    <div>
+                        <strong>
+                            Authentication
+                        </strong>
+
+                        <span>
+                            Required
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>
+                            Content-Type
+                        </strong>
+
+                        <span>
+                            multipart/form-data
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>
+                            File
+                        </strong>
+
+                        <span>
+                            PDF
+                        </span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Request -->
+
+            <section
+                id="request"
+                class="docs-section"
+            >
+
+                <span class="docs-number">
+                    06
+                </span>
+
+                <h2>
+                    Request
+                </h2>
+
+                <p>
+                    The PDF must be sent as a multipart form
+                    field named
+                    <code>file</code>.
+                </p>
+
+
+                <div class="code-block">
+
+                    <pre><code>POST /api/v1/pdf/extract
+
+Content-Type: multipart/form-data
+
+Authorization: Bearer YOUR_ACCESS_TOKEN
+
+file: document.pdf</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Response -->
+
+            <section
+                id="response"
+                class="docs-section"
+            >
+
+                <span class="docs-number">
+                    07
+                </span>
+
+                <h2>
+                    Response
+                </h2>
+
+                <p>
+                    A successful extraction returns metadata
+                    and page-by-page extracted data.
+                </p>
+
+
+                <div class="code-block">
+
+                    <pre><code>{
+    "success": true,
+    "message": "PDF processed successfully.",
+    "document_id": "65f...",
+    "file": {
+        "filename": "document.pdf",
+        "size_bytes": 24578,
+        "size_mb": 0.023,
+        "page_count": 2
+    },
+    "extraction": {
+        "method": "pymupdf",
+        "text_extracted": true
+    },
+    "data": {
+        "page_1": {
+            "text": "Text from page 1..."
+        },
+        "page_2": {
+            "text": "Text from page 2..."
+        }
+    }
+}</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Errors -->
+
+            <section
+                id="errors"
+                class="docs-section"
+            >
+
+                <span class="docs-number">
+                    08
+                </span>
+
+                <h2>
+                    Errors
+                </h2>
+
+                <p>
+                    The API returns an HTTP status code together
+                    with an error message when a request fails.
+                </p>
+
+
+                <div class="error-table">
+
+                    <div class="error-row error-header">
+
+                        <span>
+                            Status
+                        </span>
+
+                        <span>
+                            Meaning
+                        </span>
+
+                    </div>
+
+
+                    <div class="error-row">
+
+                        <span>
+                            400
+                        </span>
+
+                        <span>
+                            Invalid request or invalid PDF
+                        </span>
+
+                    </div>
+
+
+                    <div class="error-row">
+
+                        <span>
+                            401
+                        </span>
+
+                        <span>
+                            Authentication required
+                        </span>
+
+                    </div>
+
+
+                    <div class="error-row">
+
+                        <span>
+                            413
+                        </span>
+
+                        <span>
+                            PDF exceeds 5 MB
+                        </span>
+
+                    </div>
+
+
+                    <div class="error-row">
+
+                        <span>
+                            422
+                        </span>
+
+                        <span>
+                            PDF could not be processed
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Limits -->
+
+            <section
+                id="limits"
+                class="docs-section"
+            >
+
+                <span class="docs-number">
+                    09
+                </span>
+
+                <h2>
+                    Limits
+                </h2>
+
+
+                <div class="limits-grid">
+
+                    <div class="limit-card">
+
+                        <strong>
+                            5 MB
+                        </strong>
+
+                        <span>
+                            Maximum PDF size
+                        </span>
+
+                    </div>
+
+
+                    <div class="limit-card">
+
+                        <strong>
+                            100
+                        </strong>
+
+                        <span>
+                            Maximum pages
+                        </span>
+
+                    </div>
+
+
+                    <div class="limit-card">
+
+                        <strong>
+                            PDF
+                        </strong>
+
+                        <span>
+                            Supported file type
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Examples -->
+
+            <section
+                id="examples"
+                class="docs-section"
+            >
+
+                <span class="docs-number">
+                    10
+                </span>
+
+                <h2>
+                    Examples
+                </h2>
+
+
+                <h3>
+                    cURL
+                </h3>
+
+                <div class="code-block">
+
+                    <pre><code>curl -X POST ^
+  http://127.0.0.1:8000/api/v1/pdf/extract ^
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" ^
+  -F "file=@document.pdf"</code></pre>
+
+                </div>
+
+
+                <h3>
+                    Python
+                </h3>
+
+                <div class="code-block">
+
+                    <pre><code>import requests
+
+url = "http://127.0.0.1:8000/api/v1/pdf/extract"
+
+headers = {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+}
+
+with open("document.pdf", "rb") as pdf:
+
+    response = requests.post(
+        url,
+        headers=headers,
+        files={
+            "file": pdf
+        }
+    )
+
+print(response.json())</code></pre>
+
+                </div>
+
+
+                <h3>
+                    JavaScript
+                </h3>
+
+                <div class="code-block">
+
+                    <pre><code>const formData = new FormData();
+
+formData.append("file", pdfFile);
+
+const response = await fetch(
+    "http://127.0.0.1:8000/api/v1/pdf/extract",
+    {
+        method: "POST",
+
+        headers: {
+            "Authorization":
+                "Bearer YOUR_ACCESS_TOKEN"
+        },
+
+        body: formData
+    }
+);
+
+const data = await response.json();
+
+console.log(data);</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+        </article>
+
+    </div>
+
+</main>
+
+
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            PDF Extractor
+        </p>
+
+        <p>
+            PDF → JSON
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

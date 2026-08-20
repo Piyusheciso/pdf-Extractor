@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Document - PDF Extractor</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container header-content">
+
+        <a
+            href="./dashboard.html"
+            class="logo"
+        >
+            PDF Extractor
+        </a>
+
+        <nav class="nav">
+
+            <a href="./dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="./documents.html">
+                Documents
+            </a>
+
+            <a href="./documentation.html">
+                Documentation
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="card">
+
+                <a
+                    href="./dashboard.html"
+                    class="back-link"
+                >
+                    ← Back to Dashboard
+                </a>
+
+                <div id="loading">
+                    Loading document...
+                </div>
+
+                <div
+                    id="error"
+                    class="error hidden"
+                ></div>
+
+                <div
+                    id="document-content"
+                    class="hidden"
+                >
+
+                    <h1 id="document-name">
+                        Document
+                    </h1>
+
+                    <div id="document-meta"></div>
+
+                    <hr>
+
+                    <h2>
+                        Extracted Data
+                    </h2>
+
+                    <div id="pages-container"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="./js/config.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/auth.js"></script>
+<script src="./js/document.js"></script>
+
+</body>
+
+</html>
