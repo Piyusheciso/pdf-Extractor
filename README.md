@@ -22,7 +22,6 @@ The project consists of a **FastAPI backend**, **MongoDB database**, and a light
 - Delete saved documents
 - Dashboard statistics
 - Drag-and-drop PDF upload
-- REST API
 - Swagger API documentation
 - CORS support
 - 5 MB PDF upload limit
